@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мухаммад Ахмедов | Будущий IT-гений</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --secondary: #EC4899;
+            --bg: #FFFFFF;
+            --text: #111827;
+            --card-bg: #FFFFFF;
+            --border: #E5E7EB;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode {
+            --primary: #8B5CF6;
+            --secondary: #F472B6;
+            --bg: #111827;
+            --text: #F9FAFB;
+            --card-bg: #1F2937;
+            --border: #374151;
+            --shadow: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 60px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        /* Theme buttons */
+        .theme-switcher {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            background: var(--card-bg);
+            padding: 12px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: var(--bg);
+            color: var(--text);
+            transition: transform 0.3s;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            padding: 0 2px;
+        }
+
+        /* Skills */
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(236, 72, 153, 0.05));
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: transform 0.3s;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 60px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Ахмедов Мухаммад</h1>
+            <p class="subtitle">Юный гений программирования с безграничным потенциалом</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Main Content -->
+        <div class="card-grid">
+            <!-- About Card -->
+            <section class="card">
+                <h2>О себе</h2>
+                <p>Меня зовут <span class="highlight">Мухаммад Ахмедов</span>, мне 13 лет, и я увлечен миром технологий с самого детства. Родился <span class="highlight">30 декабря 2011 года</span> в эпоху цифровой революции.</p>
+                <p>Уже сейчас я понимаю, что мое будущее связано с IT-технологиями. Мне нравится решать сложные задачи, находить нестандартные решения и постоянно учиться новому.</p>
+                
+                <div class="skills-section">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">HTML/CSS</div>
+                    <div class="skill-item">Кибербезопасность</div>
+                    <div class="skill-item">Алгоритмы</div>
+                    <div class="skill-item">Git</div>
+                </div>
+            </section>
+            
+            <!-- Achievements Card -->
+            <section class="card">
+                <h2>Мои достижения</h2>
+                <p><i class="fas fa-trophy" style="color: var(--primary); margin-right: 8px;"></i> В 8 лет написал первую программу — калькулятор на Python</p>
+                <p><i class="fas fa-code" style="color: var(--primary); margin-right: 8px;"></i> К 10 годам освоил основы веб-разработки</p>
+                <p><i class="fas fa-shield-alt" style="color: var(--primary); margin-right: 8px;"></i> В 12 лет начал изучать кибербезопасность</p>
+                <p><i class="fas fa-lightbulb" style="color: var(--primary); margin-right: 8px;"></i> Создал несколько собственных проектов</p>
+            </section>
+            
+            <!-- Hobbies Card -->
+            <section class="card">
+                <h2>Мои увлечения</h2>
+                <p><i class="fas fa-chess" style="color: var(--secondary); margin-right: 8px;"></i> Шахматы и стратегические игры</p>
+                <p><i class="fas fa-book" style="color: var(--secondary); margin-right: 8px;"></i> Чтение книг о технологиях</p>
+                <p><i class="fas fa-robot" style="color: var(--secondary); margin-right: 8px;"></i> Искусственный интеллект</p>
+                <p><i class="fas fa-gamepad" style="color: var(--secondary); margin-right: 8px;"></i> Разработка игр</p>
+            </section>
+            
+            <!-- Future Card -->
+            <section class="card">
+                <h2>Мои планы</h2>
+                <p>К <span class="highlight">18 годам</span> стать профессиональным разработчиком и специалистом по кибербезопасности.</p>
+                <p>Участвовать в международных соревнованиях по программированию.</p>
+                <p>Разработать технологию, которая изменит мир к лучшему.</p>
+                <p>Основать IT-компанию и создавать инновационные продукты.</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>"Будущее принадлежит тем, кто верит в красоту своей мечты" — Элеонора Рузвельт</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.9rem; color: var(--text); opacity: 0.7;">© 2024 Мухаммад Ахмедов. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="theme-btn" id="light-mode" title="Светлая тема"><i class="fas fa-sun"></i></button>
+        <button class="theme-btn" id="dark-mode" title="Темная тема"><i class="fas fa-moon"></i></button>
+        <button class="theme-btn" id="purple-mode" title="Фиолетовая тема"><i class="fas fa-palette"></i></button>
+    </div>
+
+    <script>
+        // Theme switcher
+        const lightBtn = document.getElementById('light-mode');
+        const darkBtn = document.getElementById('dark-mode');
+        const purpleBtn = document.getElementById('purple-mode');
+        
+        lightBtn.addEventListener('click', () => {
+            document.body.classList.remove('dark-mode', 'purple-mode');
+            localStorage.setItem('theme', 'light');
+        });
+        
+        darkBtn.addEventListener('click', () => {
+            document.body.classList.add('dark-mode');
+            document.body.classList.remove('purple-mode');
+            localStorage.setItem('theme', 'dark');
+        });
+        
+        purpleBtn.addEventListener('click', () => {
+            document.body.classList.add('purple-mode');
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'purple');
+        });
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else if (savedTheme === 'purple') {
+            document.body.classList.add('purple-mode');
+        }
+        
+        // Add purple mode styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .purple-mode {
+                --primary: #8B5CF6;
+                --secondary: #D946EF;
+                --bg: #1E1B4B;
+                --text: #E9D5FF;
+                --card-bg: #312E81;
+                --border: #4338CA;
+                --shadow: rgba(0, 0, 0, 0.3);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
